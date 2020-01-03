@@ -1,22 +1,18 @@
 jQuery(document).ready(function($) {
-		$('.play').click(function(e) {
 
-				var $button = $(this);
-				$button.prop('disabled', true);
+  $('.play').click(function(e) {
 
-				var audio = document.getElementById($button.data('file'));
-				// word = $button.text();
-				// $button.text('Playing...');
+    // Unique variables for click event
+    var $button = $(this),
+      audio;
 
-				// if ($(audio).attr('id').indexOf('sco') > -1) { // Didna quite trim the stairt o the file eneuch
-				//     audio.currentTime = 0.089;
-				// }
+    $button.prop('disabled', true);
+    audio = document.getElementById($button.data('file'));
 
-				$(audio).bind('ended', function() {
-						// $button.text(word);
-						$(this).unbind('ended');
-						$button.prop('disabled', false);
-				});
-				audio.play();
-		});
+    $(audio).bind('ended', function() {
+      $(this).unbind('ended');
+      $button.prop('disabled', false);
+    });
+    audio.play();
+  });
 });
