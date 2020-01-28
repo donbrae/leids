@@ -1,8 +1,6 @@
 jQuery(document).ready(function($) {
 
-  var volume = {
-    sco: 0.7
-  };
+  // var volume = {}; // Doesn't work in iOS
 
   $('.play').click(function(e) {
 
@@ -14,9 +12,9 @@ jQuery(document).ready(function($) {
     $button.prop('disabled', true);
     audio = document.getElementById($button.data('file'));
 
-    if (volume[lang]) {
-      audio.volume = volume[lang];
-    }
+    // if (volume[lang]) {
+    //   audio.volume = volume[lang];
+    // }
 
     $(audio).bind('ended', function() {
       $(this).unbind('ended');
